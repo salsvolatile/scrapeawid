@@ -5,11 +5,11 @@ import scraperwiki
 import lxml.html
 #
 # # Read in a page
-html = scraperwiki.scrape("https://www.awid.org/jobs")
+html = scraperwiki.scrape("https://economia.icaew.com/en/accountancy-rich-list-2017/100-to-51")
 #create an empty dictionary variable to hold our data later
 record = {}
 root = lxml.html.fromstring(html)
-names = root.cssselect("td div a")
+names = root.cssselect("article class div class h3")
 for name in names:
   #print name.text
   print name.attrib['href']
